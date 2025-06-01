@@ -15,7 +15,8 @@ public class CalculadoraCURP {
             return 'X';
         }
         for(int i = 0; i < s.length(); i++){
-            if(s.charAt(i)=='A'|| s.charAt(i)=='E' || s.charAt(i)=='I'|| s.charAt(i)=='O'|| s.charAt(i)=='U'){
+            char letra = s.charAt(i);
+            if(("aeiouAEIOU").indexOf(letra)!=-1){
                 return s.charAt(i);
             }
         }
@@ -38,7 +39,7 @@ public class CalculadoraCURP {
     }
     //-------NOMBRE
     private String curpParte03(Persona persona){
-        String nombre = persona.getNombre();
+        String nombre = persona.getNombre().toUpperCase();
         
         if (persona.getNombre2().equals(" ") || persona.getNombre2().equals("")){
             char letra = nombre.charAt(0);
@@ -117,7 +118,14 @@ public class CalculadoraCURP {
     
     //--------- CONS NOMBRE
     private String curpParte11(Persona persona){
-        String nombre = persona.getNombre();
+        String nombre = persona.getNombre().toUpperCase();
+        
+        if(nombre.equals("JOSE")){
+            nombre = persona.getNombre2();
+        }
+        if(nombre.equals("MARIA")){
+            nombre = persona.getNombre2();
+        }
         
         for (int i =1; i < nombre.length(); i++){
             char letra = nombre.charAt(i);
