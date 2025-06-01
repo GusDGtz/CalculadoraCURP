@@ -25,9 +25,7 @@ public class CalculadoraCURP {
     //--------APELLIDO
     private String curpParte01(Persona persona){
         String apellido = persona.getApellido();
-        if(apellido.equals("JOSE")&&persona.getApellido2()!=null){
-            apellido = persona.getApellido2();
-        }
+
         return ""+apellido.charAt(0)+""+buscarVocalInterna(apellido);
     }
     //-------APELLIDO 2
@@ -41,6 +39,17 @@ public class CalculadoraCURP {
     //-------NOMBRE
     private String curpParte03(Persona persona){
         String nombre = persona.getNombre();
+        
+        if (persona.getNombre2().equals(" ") || persona.getNombre2().equals("")){
+            char letra = nombre.charAt(0);
+            return ""+letra;
+        }
+        if(nombre.equals("JOSE")){
+            nombre = persona.getNombre2();
+        }
+        if(nombre.equals("MARIA")){
+            nombre = persona.getNombre2();
+        }
         return ""+nombre.charAt(0);
     }
     //------ANIO
